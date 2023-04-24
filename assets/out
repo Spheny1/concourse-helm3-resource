@@ -104,6 +104,8 @@ set_overridden_values() {
     helm_set_opt='--set'
     if [ "$type" == 'string' ]; then
       helm_set_opt='--set-string'
+    elif [ "$type" == 'file' ]; then
+      helm_set_opt='--set-file'
     fi
 
     overridden_args+=("$helm_set_opt" "$key=$value")
